@@ -131,7 +131,14 @@
     </div>
     <script>
         function valorApertado(valor) {
-            document.getElementById("tela").value += valor;
+            let display =document.getElementById("tela")
+            if( display.value === "Erro" ){
+              display.value=""
+            }
+            
+
+            
+            display.value += valor;
         }
         function calcular() {
             try {
@@ -139,6 +146,7 @@
             }
             catch {
                 document.getElementById("tela").value = "Erro";
+                
             }
         }
         function limpar() {
