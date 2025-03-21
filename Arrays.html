@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+
+        }
+        .container1{
+            width: 400px;
+            height: 200px;
+            margin-top: 30px;
+            box-shadow: 0px 8px 10px black;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            
+            flex-direction: column;
+        }
+        button{
+            color: white;
+            background-color: rgb(27, 192, 27);
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: rgb(27, 192, 27);
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container1'>
+        <div style="margin-left: 50px;">
+        <label for="">informe o carro para ser adicionado a lista</label>
+        <input type="text" placeholder="EX:fusca"  id="valor" onkeypress="ativarBotao()">
+        <button onclick="add() " disabled id="botao1">adicionar</button>
+        <div>
+        <input type="checkbox" id="inicio">ADCinicio
+        <input type="checkbox" id="final">ADCfinal
+    </div>
+    </div>
+    </div>
+    
+    <div style="padding: 20px; text-align: center;">
+        <label >Lista Atual</label>
+        <ul id="lista">
+        
+
+        </ul>
+    </div>
+
+    <script>
+        const cars = ['opala', 'fusca', 'Tl']   
+
+      
+        function listarCarros() {
+              let itemlista = ''
+            for (let i = 0; i < cars.length; i++) {
+                itemlista += '<li>' + cars[i] + '</li>'
+
+            }
+         
+            document.getElementById('lista').innerHTML = itemlista
+        }
+
+        function add() {
+            let carro = document.getElementById('valor').value
+            if(document.getElementById('inicio').checked){
+                 
+                cars.unshift(carro)
+            }
+          else{
+                cars.push(carro)
+            }
+            document.getElementById('valor').value=''
+            listarCarros()
+            document.getElementsByTagName('button')[0].disabled = true
+            
+        }
+        function ativarBotao(){
+            document.getElementsByTagName('button')[0].disabled = document.getElementById('valor').valor >0
+
+        }
+        function trocar(){
+            let botao = document.getElementById('')
+        }
+        
+       
+
+    </script>
+
+</body>
+
+</html>
